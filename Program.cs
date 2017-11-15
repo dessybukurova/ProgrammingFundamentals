@@ -3,34 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Numerics;
 
-namespace ProgrammingFundamentalsAnonymousDownsite
+namespace HornetWings
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int numberOfWebsites = int.Parse(Console.ReadLine());
+            int wingFlaps = int.Parse(Console.ReadLine());
+            double distanceForWingFlaps = double.Parse(Console.ReadLine());
+            int endurance = int.Parse(Console.ReadLine());
 
-            int securityKey = int.Parse(Console.ReadLine());
-            decimal totalLoss = 0;
+            var distance = (wingFlaps / 1000) * distanceForWingFlaps;
+            var seconds = (wingFlaps / endurance) * 5;
 
-            for (int i = 0; i < numberOfWebsites; i++)
-            {
-                string[] websites = Console.ReadLine().Split();
-                string siteName = websites[0];
+            seconds += wingFlaps / 100;
 
-                decimal siteVisits = decimal.Parse(websites[1]);
-                decimal siteCommercialPricePerVisit = decimal.Parse(websites[2]);
-                decimal siteLoss = siteVisits * siteCommercialPricePerVisit;
+            Console.WriteLine($"{distance:F2} m.");
+            Console.WriteLine($"{seconds} s.");
 
-                totalLoss += siteLoss;
-                Console.WriteLine(siteName);
 
-            }
-            Console.WriteLine($"Total loss: {totalLoss:F20}");
-            Console.WriteLine($"Security token: {BigInteger.Pow(securityKey, numberOfWebsites)}");
         }
     }
 }
